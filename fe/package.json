@@ -28,28 +28,44 @@
     "tsc": "tsc",
     "ui": "umi ui"
   },
-  "husky": { "hooks": { "pre-commit": "npm run lint-staged" } },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  },
   "lint-staged": {
     "**/*.less": "stylelint --syntax less",
-    "**/*.{js,jsx,tsx,ts,less,md,json}": ["prettier --write", "git add"],
+    "**/*.{js,jsx,tsx,ts,less,md,json}": [
+      "prettier --write",
+      "git add"
+    ],
     "**/*.{js,jsx}": "npm run lint-staged:js",
     "**/*.{js,ts,tsx}": "npm run lint-staged:js"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 10"],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ],
   "dependencies": {
     "@ant-design/pro-layout": "^4.9.11",
     "@antv/data-set": "^0.10.2",
     "antd": "^3.23.6",
+    "bizcharts": "^3.5.6",
+    "bizcharts-plugin-slider": "^2.1.1-beta.1",
     "classnames": "^2.2.6",
     "dva": "^2.6.0-beta.16",
+    "gg-editor": "^2.0.4",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
+    "numeral": "^2.0.6",
     "omit.js": "^1.0.2",
     "path-to-regexp": "2.4.0",
     "qs": "^6.9.0",
     "react": "^16.8.6",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.8.6",
+    "react-fittext": "^1.0.0",
     "react-helmet": "^5.2.1",
     "redux": "^4.0.1",
     "umi": "^2.8.7",
@@ -94,8 +110,12 @@
     "umi-plugin-pro": "^1.0.2",
     "umi-types": "^0.5.0"
   },
-  "optionalDependencies": { "puppeteer": "^1.17.0" },
-  "engines": { "node": ">=10.0.0" },
+  "optionalDependencies": {
+    "puppeteer": "^1.17.0"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "checkFiles": [
     "src/**/*.js*",
     "src/**/*.ts*",
