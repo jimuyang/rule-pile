@@ -28,10 +28,10 @@ export default () => (
         <Col span={4} className={styles.editorSidebar}>
           <FlowItemPanel />
         </Col>
-        <Col span={16} className={styles.editorContent}>
+        <Col span={14} className={styles.editorContent}>
           <Flow className={styles.flow} />
         </Col>
-        <Col span={4} className={styles.editorSidebar}>
+        <Col span={6} className={styles.editorSidebar}>
           <FlowDetailPanel />
           <EditorMinimap />
         </Col>

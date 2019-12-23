@@ -111,7 +111,7 @@ export default {
               authority: ['admin'],
             },
             {
-              name: '流程编辑器',
+              name: 'editor',
               icon: 'smile',
               path: '/editorflow',
               component: './EditorFlow',

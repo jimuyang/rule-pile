@@ -2,6 +2,11 @@ import { Card, Form, Input, Select } from 'antd';
 import React, { Fragment } from 'react';
 import { withPropsAPI } from 'gg-editor';
 
+import StartNodeDetail from './form/StartNodeDetail';
+import LogicNodeDetail from './form/LogicNodeDetail';
+import DecisionNodeDetail from './form/DecisionNodeDetail';
+import EndNodeDetail from './form/EndNodeDetail';
+
 const upperFirst = str => str.toLowerCase().replace(/( |^)[a-z]/g, l => l.toUpperCase());
 
 const { Item } = Form;
@@ -9,12 +14,12 @@ const { Option } = Select;
 const inlineFormItemLayout = {
   labelCol: {
     sm: {
-      span: 8,
+      span: 6,
     },
   },
   wrapperCol: {
     sm: {
-      span: 16,
+      span: 18,
     },
   },
 };
@@ -60,20 +65,33 @@ class DetailForm extends React.Component {
   );
 
   renderNodeDetail = () => {
-    const { form } = this.props;
-    const { label } = this.item.getModel();
-    return (
-      <Item label="Label" {...inlineFormItemLayout}>
-        {form.getFieldDecorator('label', {
-          initialValue: label,
-        })(<Input onBlur={this.handleSubmit} />)}
-      </Item>
-    );
+    // const { form } = this.props;
+    // const { label } = this.item.getModel();
+    // return (
+    //   <Item label="Label" {...inlineFormItemLayout}>
+    //     {form.getFieldDecorator('label', {
+    //       initialValue: label,
+    //     })(<Input onBlur={this.handleSubmit} />)}
+    //   </Item>
+    // );
+    const { category } = this.item.getModel();
+    // console.log(category);
+    // debugger
+    switch (category) {
+      case 'start':
+        return <StartNodeDetail />;
+      case 'logic':
+        return <LogicNodeDetail />;
+      case 'end':
+        return <EndNodeDetail />;
+      default:
+        return <DecisionNodeDetail />;
+    }
   };
 
   renderEdgeDetail = () => {
     const { form } = this.props;
-    const { label = '', shape = 'flow-smooth' } = this.item.getModel();
+    const { label = '', valve = 'true' } = this.item.getModel();
     return (
       <Fragment>
         <Item label="Label" {...inlineFormItemLayout}>
@@ -81,10 +99,15 @@ class DetailForm extends React.Component {
             initialValue: label,
           })(<Input onBlur={this.handleSubmit} />)}
         </Item>
-        <Item label="Shape" {...inlineFormItemLayout}>
+        {/* <Item label="Shape" {...inlineFormItemLayout}>
           {form.getFieldDecorator('shape', {
             initialValue: shape,
           })(this.renderEdgeShapeSelect())}
+        </Item> */}
+        <Item label="valve" {...inlineFormItemLayout}>
+          {form.getFieldDecorator('valve', {
+            initialValue: valve,
+          })(<Input onBlur={this.handleSubmit} />)}
         </Item>
       </Fragment>
     );

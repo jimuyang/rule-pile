@@ -2,6 +2,7 @@ import { Divider } from 'antd';
 import React from 'react';
 import { Toolbar } from 'gg-editor';
 import ToolbarButton from './ToolbarButton';
+import SaveButton from './button/SaveButton';
 import styles from './index.less';
 
 const FlowToolbar = () => (
@@ -25,6 +26,7 @@ const FlowToolbar = () => (
     <ToolbarButton command="addGroup" icon="group" text="Add Group" />
     <ToolbarButton command="unGroup" icon="ungroup" text="Ungroup" />
     <Divider type="vertical" />
+    <SaveButton />
   </Toolbar>
 );
 
