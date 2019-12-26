@@ -80,3 +80,6 @@ for (RuRuleDefinition dependency : dependencies) {
 }
 return resultScript.toString();
 ```
+
+## 具体设计
+![](/assets/er.jpg)
